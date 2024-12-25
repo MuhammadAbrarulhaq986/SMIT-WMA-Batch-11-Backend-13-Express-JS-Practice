@@ -2,12 +2,15 @@ import express from "express"
 const app = express()
 // app.use(logger)
 
+app.use(express.static("public"))
+app.use(express.urlencoded({extended: true})) //* THIS WILL ALLOW US TO GET THE FORM 
+app.use(express.json()) //* HELP IN WHEN THE USER IS FEATCHING THE DATA OR API'S
+
 app.set("view engine", "ejs")
 
-app.get('/',(req, res) => {
-    res.render("index", { text: "World" })    
-})
-
+// app.get('/',(req, res) => {
+//     res.render("index", { text: "World" })    
+// })
 
 // const userRouter = require("./routes/users")
 import userRouter from "./routes/users.js"
